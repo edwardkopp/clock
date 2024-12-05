@@ -8,6 +8,7 @@ class App(_Tk):
         _Tk.__init__(self)
         self.title("Clock")
         self.attributes("-topmost", True)
+        self.attributes("-alpha", 0.6)
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self.quit)
         self.clock = _Clock(self)
