@@ -2,4 +2,6 @@
 
 A simple clock program.
 
-Intended for those who don't have an always-visible clock on their computer but want one (those who are hiding their Windows taskbar, or those who code in borderless fullscreen, for example).
+This is intended for Windows only. I haven't found myself needing anything like this on Linux or Mac.
+
+This program creates a top-most window with a clock showing local time. This is useful if you like hiding your taskbar.
