@@ -7,9 +7,8 @@ MAIN_PY = "main.py"
 
 def package() -> None:
     run([
-        "--clean", "-y",
+        "--clean", "-y", "-w"
         "-n", APP_NAME,
-        "-w",
         MAIN_PY
     ])
 
