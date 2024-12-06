@@ -5,7 +5,7 @@ APP_NAME = "Clock"
 MAIN_PY = "main.py"
 
 
-def main() -> None:
+def package() -> None:
     run([
         "--clean", "-y",
         "-n", APP_NAME,
@@ -15,4 +15,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    package()
