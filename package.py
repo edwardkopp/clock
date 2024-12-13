@@ -9,8 +9,7 @@ def package() -> None:
     run([
         "--clean", "-y",
         "-n", APP_NAME,
-        "--noconsole", "-w",
-        MAIN_PY
+        "-w", MAIN_PY
     ])
 
 
