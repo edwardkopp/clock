@@ -1,5 +1,5 @@
 from tkinter import Misc as _Misc, StringVar as _StringVar
-from customtkinter import CTkFrame as _Frame, CTkLabel as _Label, CTkFont as _Font
+from customtkinter import CTkFrame as _Frame, CTkLabel as _Label, CTkFont as _Font, BOTH as _BOTH
 from time import sleep as _sleep, time as _time
 from datetime import datetime as _datetime
 from threading import Thread as _Thread, current_thread as _current_thread
@@ -44,7 +44,7 @@ class Clock(_Frame):
             return
         self._thread = _Thread(target=self.time_thread)
         self._thread.start()
-        _Frame.pack(self, **kwargs)
+        _Frame.pack(self, expand=True, fill=_BOTH, **kwargs)
 
     def stop(self) -> None:
         if not isinstance(self._thread, _Thread):
