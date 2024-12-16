@@ -9,7 +9,6 @@ class App(_Tk):
         self.title("Clock")
         self.geometry("320x240")
         self.attributes("-topmost", True)
-        self.attributes("-alpha", 0.7)
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self.destroy)
         _set_mode("dark")
