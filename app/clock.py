@@ -28,7 +28,8 @@ class Clock(_Frame):
             self._timezone.config(text="".join(filter(lambda x: not x.islower(), timezone)).replace(" ", ""))
         self._time.config(text=now.strftime("%H:%M:%S"))
         self._date.config(text=now.strftime("%a %b %d %Y\n"))
-        self.after(int((((_time() + 1) // 1) - _time()) * 1000) + 10, self.set_time_loop, None)
+        # noinspection PyTypeChecker
+        self.after(int((((_time() + 1) // 1) - _time()) * 1000) + 10, self.set_time_loop)
 
     def pack(self, **kwargs) -> None:
         _Frame.pack(self, expand=True, fill=_BOTH, **kwargs)
