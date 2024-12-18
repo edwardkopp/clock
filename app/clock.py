@@ -1,4 +1,4 @@
-from tkinter import Misc as _Misc, StringVar as _StringVar, BOTH as _BOTH
+from tkinter import Misc as _Misc, BOTH as _BOTH
 from tkinter.ttk import Frame as _Frame, Label as _Label
 from tkinter.font import Font as _Font
 from time import sleep as _sleep, time as _time
@@ -11,13 +11,13 @@ class Clock(_Frame):
     def __init__(self, master: _Misc):
         _Frame.__init__(self, master)
         inner_frame = _Frame(self)
-        self._timezone = _StringVar(inner_frame)
-        self._time = _StringVar(inner_frame)
-        self._date = _StringVar(inner_frame)
+        self._timezone = _Label(inner_frame, font=_Font(size=12, weight="bold"))
+        self._timezone.pack(padx=16, pady=16)
+        self._time = _Label(inner_frame, font=_Font(size=32, weight="bold"))
+        self._time.pack(padx=16)
+        self._date = _Label(inner_frame, font=_Font(size=12, weight="bold"))
+        self._date.pack(padx=16, pady=16)
         self.set_time()
-        _Label(inner_frame, textvariable=self._timezone, font=_Font(size=12, weight="bold")).pack(padx=16, pady=16)
-        _Label(inner_frame, textvariable=self._time, font=_Font(size=32, weight="bold")).pack(padx=16)
-        _Label(inner_frame, textvariable=self._date, font=_Font(size=12, weight="bold")).pack(padx=16, pady=16)
         inner_frame.pack(expand=True)
         self._thread: _Thread | None = None
 
@@ -27,9 +27,9 @@ class Clock(_Frame):
         timezone = now.astimezone().tzname()
         if timezone is not None:
             # Mac and Linux show three character code, but Windows does not
-            self._timezone.set("".join(filter(lambda x: not x.islower(), timezone)).replace(" ", ""))
-        self._time.set(now.strftime("%H:%M:%S"))
-        self._date.set(now.strftime("%a %b %d %Y\n"))
+            self._timezone.config(text="".join(filter(lambda x: not x.islower(), timezone)).replace(" ", ""))
+        self._time.config(text=now.strftime("%H:%M:%S"))
+        self._date.config(text=now.strftime("%a %b %d %Y\n"))
 
     def time_thread(self) -> None:
         thread = _current_thread()
