@@ -16,7 +16,7 @@ class Clock(_Frame):
         self._date = _StringVar(inner_frame)
         self.set_time()
         _Label(inner_frame, textvariable=self._timezone, font=_Font(size=12, weight="bold")).pack(padx=16, pady=16)
-        _Label(inner_frame, textvariable=self._time, font=_Font(size=32)).pack(padx=16)
+        _Label(inner_frame, textvariable=self._time, font=_Font(size=32, weight="bold")).pack(padx=16)
         _Label(inner_frame, textvariable=self._date, font=_Font(size=12, weight="bold")).pack(padx=16, pady=16)
         inner_frame.pack(expand=True)
         self._thread: _Thread | None = None
