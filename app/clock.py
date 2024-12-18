@@ -1,5 +1,6 @@
-from tkinter import Misc as _Misc, StringVar as _StringVar
-from customtkinter import CTkFrame as _Frame, CTkLabel as _Label, CTkFont as _Font, BOTH as _BOTH
+from tkinter import Misc as _Misc, StringVar as _StringVar, BOTH as _BOTH
+from tkinter.ttk import Frame as _Frame, Label as _Label
+from tkinter.font import Font as _Font
 from time import sleep as _sleep, time as _time
 from datetime import datetime as _datetime
 from threading import Thread as _Thread, current_thread as _current_thread
@@ -9,13 +10,15 @@ class Clock(_Frame):
 
     def __init__(self, master: _Misc):
         _Frame.__init__(self, master)
-        self._timezone = _StringVar(self)
-        self._time = _StringVar(self)
-        self._date = _StringVar(self)
+        inner_frame = _Frame(self)
+        self._timezone = _StringVar(inner_frame)
+        self._time = _StringVar(inner_frame)
+        self._date = _StringVar(inner_frame)
         self.set_time()
-        _Label(self, textvariable=self._timezone, font=_Font(size=20)).pack(padx=16, pady=16)
-        _Label(self, textvariable=self._time, font=_Font(size=64)).pack(padx=16)
-        _Label(self, textvariable=self._date, font=_Font(size=24)).pack(padx=16, pady=16)
+        _Label(inner_frame, textvariable=self._timezone, font=_Font(size=12, weight="bold")).pack(padx=16, pady=16)
+        _Label(inner_frame, textvariable=self._time, font=_Font(size=32)).pack(padx=16)
+        _Label(inner_frame, textvariable=self._date, font=_Font(size=12, weight="bold")).pack(padx=16, pady=16)
+        inner_frame.pack(expand=True)
         self._thread: _Thread | None = None
 
     def set_time(self, now: _datetime | None = None) -> None:
