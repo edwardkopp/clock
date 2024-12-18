@@ -33,7 +33,7 @@ class Clock(_Frame):
 
         cycle = 0
         while get_state():
-            _sleep(((_time() + 1) // 1) - _time())
+            _sleep(min(0.5, ((_time() + 1) // 1) - _time()))
             if not get_state():
                 return
             self.set_time()
