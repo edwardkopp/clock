@@ -37,13 +37,11 @@ class Clock(_Frame):
         def get_state() -> bool:
             return getattr(thread, "active", True)
 
-        cycle = 0
         while get_state():
             _sleep(min(0.5, ((_time() + 1) // 1) - _time()))
             if not get_state():
                 return
             self.set_time()
-            cycle += 1
 
     def pack(self, **kwargs) -> None:
         if isinstance(self._thread, _Thread):
