@@ -11,3 +11,4 @@ class App(_Tk):
         self.attributes("-topmost", True)
         self.resizable(False, False)
         self.protocol("WM_DELETE_WINDOW", self.destroy)
+        _Clock(self).pack()
