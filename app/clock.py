@@ -26,7 +26,7 @@ class Clock(_Frame):
             # Mac and Linux show three character code, but Windows does not
             self._timezone.set("".join(filter(lambda x: not x.islower(), timezone)).replace(" ", ""))
         self._time.set(now.strftime("%H:%M:%S"))
-        self._date.set(now.strftime("%A\n%Y %b %d"))
+        self._date.set(now.strftime("%a %b %d %Y"))
 
     def time_thread(self) -> None:
         thread = _current_thread()
