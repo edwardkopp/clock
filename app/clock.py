@@ -21,8 +21,10 @@ class Clock(_Frame):
     def set_time(self, now: _datetime | None = None) -> None:
         if not isinstance(now, _datetime):
             now = _datetime.now()
-        # Mac and Linux show three character code, but Windows does not
-        self._timezone.set("".join(filter(lambda x: not x.islower(), now.astimezone().tzname())).replace(" ", ""))
+        timezone = now.astimezone().tzname()
+        if timezone is not None:
+            # Mac and Linux show three character code, but Windows does not
+            self._timezone.set("".join(filter(lambda x: not x.islower(), timezone)).replace(" ", ""))
         self._time.set(now.strftime("%H:%M:%S"))
         self._date.set(now.strftime("%A\n%Y %b %d"))
 
