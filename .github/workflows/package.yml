@@ -13,7 +13,7 @@ jobs:
         spec: "main.py"
         requirements: "requirements.txt"
         python_ver: "3.13"
-        pyinstaller_ver: ==6.11.1
+        pyinstaller_ver: "==6.11.1"
         options: -n "Clock", -w
         upload_exe_with_name: "Windows Clock"
 
@@ -26,7 +26,7 @@ jobs:
         spec: "main.py"
         requirements: "requirements.txt"
         python_ver: "3.13"
-        pyinstaller_ver: ==6.11.1
+        pyinstaller_ver: "==6.11.1"
         options: -n "Clock", -w
         upload_exe_with_name: "Mac Clock"
 
@@ -39,6 +39,6 @@ jobs:
         spec: "main.py"
         requirements: "requirements.txt"
         python_ver: "3.13"
-        pyinstaller_ver: ""==6.11.1"
+        pyinstaller_ver: "==6.11.1"
         options: -n "Clock", -w
         upload_exe_with_name: "Linux Clock"
