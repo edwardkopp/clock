@@ -10,10 +10,10 @@ jobs:
     - name: Create Windows Executable
       uses: edwardkopp/run-pyinstaller-script@main
       with:
-        python_version: "3.13"
+        python-version: "3.13"
         architecture: "x64"
         script: "package.py"
-        artifact_name: "Windows Clock"
+        artifact-name: "Windows Clock"
 
   mac-build:
     runs-on: macos-latest
@@ -21,10 +21,10 @@ jobs:
     - name: Create Mac Executable
       uses: edwardkopp/run-pyinstaller-script@main
       with:
-        python_version: "3.13"
+        python-version: "3.13"
         architecture: "arm64"
         script: "package.py"
-        artifact_name: "Mac Clock"
+        artifact-name: "Mac Clock"
 
   linux-build:
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     - name: Create Linux Executable
       uses: edwardkopp/run-pyinstaller-script@main
       with:
-        python_version: "3.13"
+        python-version: "3.13"
         architecture: "x64"
         script: "package.py"
-        artifact_name: "Linux Clock"
+        artifact-name: "Linux Clock"
