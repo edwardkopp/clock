@@ -1,0 +1,38 @@
+name: Packaging
+
+on:
+  workflow_dispatch:
+
+jobs:
+  windows-build:
+    runs-on: windows-latest
+    steps:
+    - name: Create Windows Executable
+      uses: sayyid5416/pyinstaller@v1.8.0
+      with:
+        spec: "main.py"
+        requirements: "requirements.txt"
+        python_ver: "3.13"
+        options: -n "Clock", -w
+
+  mac-build:
+    runs-on: macos-latest
+    steps:
+    - name: Create Mac Executable
+      uses: sayyid5416/pyinstaller@v1.8.0
+      with:
+        spec: "main.py"
+        requirements: "requirements.txt"
+        python_ver: "3.13"
+        options: -n "Clock", -w
+
+  linux-build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Linux Executable
+      uses: sayyid5416/pyinstaller@v1.8.0
+      with:
+        spec: "main.py"
+        requirements: "requirements.txt"
+        python_ver: "3.13"
+        options: -n "Clock", -w
