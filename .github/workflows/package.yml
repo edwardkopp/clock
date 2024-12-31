@@ -8,37 +8,31 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Create Windows Executable
-      uses: sayyid5416/pyinstaller@v1.8.0
+      uses: edwardkopp/run-pyinstaller-script@latest
       with:
-        spec: "main.py"
-        requirements: "requirements.txt"
-        python_ver: "3.13"
-        pyinstaller_ver: "==6.11.1"
-        options: -n "Clock", -w
-        upload_exe_with_name: "Windows Clock"
+        python_version: "3.13"
+        architecture: "x64"
+        script: "package.py"
+        artifact_name: "Windows Clock"
 
   mac-build:
     runs-on: macos-latest
     steps:
     - name: Create Mac Executable
-      uses: sayyid5416/pyinstaller@v1.8.0
+      uses: edwardkopp/run-pyinstaller-script@latest
       with:
-        spec: "main.py"
-        requirements: "requirements.txt"
-        python_ver: "3.13"
-        pyinstaller_ver: "==6.11.1"
-        options: -n "Clock", -w
-        upload_exe_with_name: "Mac Clock"
+        python_version: "3.13"
+        architecture: "arm64"
+        script: "package.py"
+        artifact_name: "Mac Clock"
 
   linux-build:
     runs-on: ubuntu-latest
     steps:
     - name: Create Linux Executable
-      uses: sayyid5416/pyinstaller@v1.8.0
+      uses: edwardkopp/run-pyinstaller-script@latest
       with:
-        spec: "main.py"
-        requirements: "requirements.txt"
-        python_ver: "3.13"
-        pyinstaller_ver: "==6.11.1"
-        options: -n "Clock", -w
-        upload_exe_with_name: "Linux Clock"
+        python_version: "3.13"
+        architecture: "x64"
+        script: "package.py"
+        artifact_name: "Linux Clock"
