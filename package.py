@@ -1,4 +1,7 @@
 from PyInstaller.__main__ import run
+from sys import platform
+from os.path import join
+from shutil import rmtree
 
 
 APP_NAME = "Clock"
@@ -11,6 +14,8 @@ def package() -> None:
         "-n", APP_NAME,
         "-w", MAIN_PY
     ])
+    if platform == "darwin":
+        rmtree(join(".", "dist", APP_NAME))
 
 
 if __name__ == "__main__":
