@@ -27,7 +27,7 @@ jobs:
         artifact-name: "Mac Clock"
 
   linux-build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: Create Linux Executable
       uses: edwardkopp/run-pyinstaller-script@main
