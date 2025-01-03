@@ -5,7 +5,7 @@ on:
 
 jobs:
   windows-build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
     - name: Create Windows Executable
       uses: edwardkopp/run-pyinstaller-script@main
@@ -16,7 +16,7 @@ jobs:
         artifact-name: "Windows Clock"
 
   mac-build:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
     - name: Create Mac Executable
       uses: edwardkopp/run-pyinstaller-script@main
@@ -27,7 +27,7 @@ jobs:
         artifact-name: "Mac Clock"
 
   linux-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Create Linux Executable
       uses: edwardkopp/run-pyinstaller-script@main
